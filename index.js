@@ -247,14 +247,16 @@ If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 function get20s(arr) {
   const filtered = [];
   for(let i = 0; i<arr.length; i++){
+    //spliting the years property into two seperate strings formatted as 'XXXX'
     const splited = arr[i]['years'].split(' - ');
-    //console.log(splited);
+    //Checking if the years are within the appropriate range
     if(splited[0]>='1900' && splited[1]<='2000')
     {
-      //console.log(arr[i]);
+      //pushing the name to a seperate array
       filtered.push(arr[i]['name']);
     }
   }
+  //returning the seperate array
   return filtered;
 }
 
@@ -269,7 +271,9 @@ Use removeArtist to do the following:
 For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
 function removeArtist(arr,i) {
+  //using splice to remove 1 item from index i or the array
   arr.splice(i,1);
+  //returns the resulting array
   return arr.length;
 }
 
@@ -298,6 +302,7 @@ function addArtist(arr) {
     genre: 'Web Design', 
     nationality: 'Caucasion',
     bio: 'Hard worker. Student at BloomTech.'})
+    //adding the object to the arr before returning the array.
     return arr;
 }
 
@@ -314,6 +319,7 @@ function lotsOfArt(arr) {
   const filtered = [];
   for(let i = 0; i<arr.length; i++){
     if(arr[i]['paintings']>=100){
+      //checking if the paintings property is over 100 at index i, if so pushing the artists name to the filtered array
       filtered.push(arr[i]['name']);
     }
   }
@@ -333,6 +339,7 @@ For example artistInfo(artists, 'Frida Kahlo') will return:
 function artistInfo(arr,name){
   for(let i =0; i<arr.length; i++){
     if(arr[i]['name'] === name){
+      //looping through to find the artist with the same name as the given paremeter and returning the bio of that artists as an array(as that is how the question has it formatted)
       return [arr[i]['bio']];
     }
   }
@@ -353,6 +360,7 @@ function artistByCountry(arr,nation){
   const filtered = [];
   for(let i =0;i<arr.length;i++){
     if(arr[i]['nationality'] === nation){
+      //loops through finding object in the array that has the nationality property equal to the accepted parameter, then pushing the name to a seperate array
       filtered.push(arr[i]['name']);
     }
   }
